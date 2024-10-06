@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { CopilotKit } from "@copilotkit/react-core";
 import { ThemeProvider } from "@/components/theme-provider"
+import Navbar from "@/components/navbar";
 
 
 
@@ -39,7 +40,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-
+ <Navbar/>
           <CopilotKit runtimeUrl="/api/copilotkit">
           
             {children}
