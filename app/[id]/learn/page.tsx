@@ -22,7 +22,7 @@ const LearnPage = () => {
   }, [flashcards, id]); // useEffect should depend on flashcards and id, not data
 
   return (
-    <div className='w-screen flex justify-center '>
+    <div className='w-full flex justify-center '>
     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl: gap-4 m-4 '>
       {data.map((item, key) => (
        

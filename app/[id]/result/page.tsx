@@ -29,7 +29,7 @@ export default function QuizResult({ correctAnswers, wrongAnswers, totalQuestion
   }, []); // Empty dependency array to ensure this runs only once on mount
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-white">
+    <div className="flex flex-col items-center justify-center h-full text-white">
       {showTrophy && (
         <div className="flex items-center justify-center mb-8">
           <FaTrophy className="text-yellow-400 text-6xl" />

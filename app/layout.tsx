@@ -40,11 +40,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <div className="h-screen w-screen dark:bg-gradient-to-r from-slate-200 via-slate-400 to-slate-500 ">
  <Navbar/>
           <CopilotKit runtimeUrl="/api/copilotkit">
           
             {children}
           </CopilotKit>
+          </div>
           </ThemeProvider>
       </body>
     </html>

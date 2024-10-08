@@ -90,7 +90,7 @@ const QuizPage = () => {
   }
  }
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-[80%] my-auto">
       {currentQuestion ? (
         <div className={`w-full max-w-3xl  p-8 rounded-lg shadow-lg object-contain ${(theme=="light" || theme=="system")?' ':'bg-white text-black'}`}>
           <QuizQuestionComponent

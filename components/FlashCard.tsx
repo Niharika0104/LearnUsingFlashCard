@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Flashcard, QuizQuestion,TopicContent } from '@/lib/store/flashcardstore';
 import useFlashcardStore from '@/lib/store/flashcardstore';
+import { useTheme } from 'next-themes';
 interface FlashCardData{
     term:string;
     description:string;
@@ -17,7 +18,7 @@ const FlashcardComponent = ({ term, description }:FlashCardData) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editTerm, setEditTerm] = useState(term);
   const [editDescription, setEditDescription] = useState(description);
-
+  const { theme, setTheme } = useTheme();
   const handleFlip = () => setIsFlipped(!isFlipped);
   const handleEditToggle = () => setIsEditing(!isEditing);
   const handleSave = () => {
@@ -33,7 +34,7 @@ const FlashcardComponent = ({ term, description }:FlashCardData) => {
         
         {/* Front Side */}
        { !isFlipped?<Card className={`absolute w-full h-full flex justify-center items-center transition-transform duration-500 ${
-          isFlipped ? 'rotate-y-180' : 'rotate-0'}`}  onClick={handleFlip}>
+          isFlipped ? 'rotate-y-180' : 'rotate-0'} ${theme==="dark"?"bg-white text-black":""}`}  onClick={handleFlip}>
           <CardHeader className=''>
             
               <h2>{term}</h2>
@@ -44,7 +45,7 @@ const FlashcardComponent = ({ term, description }:FlashCardData) => {
 
    
         <Card className={`absolute w-full h-full flex justify-center items-center transition-transform duration-500 ${
-          isFlipped ? 'rotate-y-180' : 'rotate-0'}`}  onClick={handleFlip}>
+          isFlipped ? 'rotate-y-180' : 'rotate-0'} ${theme==="dark"?"bg-white text-black":""}`}  onClick={handleFlip}>
           <CardContent >
             <p>{description}</p>
           </CardContent>
