@@ -18,7 +18,7 @@ QuizFlip is an app that generates flashcards on any topic you ask for, helping u
 
 ## Demo
 
-You can have a live demo of Snippy [here](https://learn-using-flash-cards.vercel.app)
+You can have a live demo of QuizFlip [here](https://learn-using-flash-cards.vercel.app)
 
 Screenshots:
 - Dashboard
