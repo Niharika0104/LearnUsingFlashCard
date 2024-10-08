@@ -14,6 +14,7 @@ interface Quiz extends QuizQuestion{
 const QuizPage = () => {
   const { theme, setTheme } = useTheme();
   const { id } = useParams();
+  const [marked,setmaked]=useState(false);
   const router=useRouter();
   const flashcards = useFlashCardStore((state) => state.flashcards);
   const [data, setData] = useState<Quiz[]>([]);
@@ -74,12 +75,14 @@ const QuizPage = () => {
   };
   const markReview=()=>{
     const val=currentQuestionIndex;
-    currentQuestion.isMarkedForReview=true;
-    setCurrentQuestionIndex(val);
+    currentQuestion.isMarkedForReview= !currentQuestion.isMarkedForReview;
+    setmaked(!marked);
   }
  const endTest=()=>{
-  if(rev>0 && window.confirm(`You have marked ${rev} questions for review.Are you sure you want to end test?`))
-    {processresult();router.push(`result`)}
+  const review=data.filter((ques) => ques.isMarkedForReview === true).length;
+  if(review>0){ if(window.confirm(`You have marked ${review} questions for review.Are you sure you want to end test?`)){
+    {processresult();router.push(`result`)}}
+}
   else{
     if(window.confirm(`Are you sure you want to end test?`)){
       processresult();router.push(`result`)
@@ -105,10 +108,12 @@ const QuizPage = () => {
             <Button className='bg-purple-400 text-black hover:bg-purple-500' onClick={nextQuestion} disabled={currentQuestionIndex === data.length - 1}>
               Next Question
             </Button>
-            <Button className='bg-purple-400 text-black hover:bg-purple-500' onClick={()=>{markReview()}} >
+            {!currentQuestion.isMarkedForReview? <Button className='bg-purple-400 text-black hover:bg-purple-500' onClick={()=>{markReview()}} >
               Mark As Review
-            </Button>
-            <Button className='bg-purple-400 text-black hover:bg-purple-500' onClick={()=>{endTest()}} >
+            </Button>:<Button className='bg-purple-400 text-black hover:bg-purple-500' onClick={()=>{markReview()}} >
+            Unmark for Review
+            </Button>}
+           <Button className='bg-purple-400 text-black hover:bg-purple-500' onClick={()=>{endTest()}} >
               End Test
             </Button>
           </div>

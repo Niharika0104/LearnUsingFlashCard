@@ -36,8 +36,10 @@ export default function QuizQuestionComponent({
           {question}
         </div>
         {markedAsReview && (
-          <div className="bg-amber-50 text-black text-center rounded-lg py-2 px-4">
+          <div>
+          <div className="bg-amber-400 text-black text-center rounded-lg py-2 px-4 font-semibold">
             Marked for Review
+          </div>
           </div>
         )}
       </div>

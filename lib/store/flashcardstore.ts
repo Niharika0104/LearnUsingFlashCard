@@ -21,7 +21,7 @@ interface QuizQuestion {
   question: string;
   options: string[]; // Array of 4 options
   correct: string; // ID of the correct option
-  selectedOption:string
+ 
 }
 
 // Interface for the topic's JSON object
