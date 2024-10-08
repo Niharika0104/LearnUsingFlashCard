@@ -8,6 +8,7 @@ import useFlashCardStore from '@/lib/store/flashcardstore';
 import { Flashcard, QuizQuestion,TopicContent } from '@/lib/store/flashcardstore';
 import RecentFlashCardTopic from "@/components/FlashCardTopics";
 
+
 export default function Home() {
   const flashcards = useFlashCardStore((state) => state.flashcards);
   const addFlashCard = useFlashCardStore((state) => state.addTopicContent);
@@ -34,33 +35,36 @@ export default function Home() {
       // }
       addFlashCard(args);
     };
-  
+   
 
-  useCopilotAction({
-    name: "create-flashcards-and-also-quiz-questions-for-those-flashcards",
-    description: "Create a new flashcard along with corresponding quiz questions. Each flashcard should contain a term, description, topic, and relevant tags. Additionally, for each flashcard, generate quiz questions with multiple answer options and indicate the correct option.",
-    parameters: [
-      {
-        name: "flashcards",
-        description: "The flashcards for the given topic",
-        type: "object[]", // Use "array" as the type
+    useCopilotAction({
+      name: "create-flashcards-and-also-quiz-questions-for-those-flashcards",
+      description: `Create a new flashcard along with corresponding quiz questions. Each flashcard should contain a term, description, topic, and relevant tags. Additionally, for each flashcard, generate quiz questions with multiple answer options. 
+      The quiz questions should conform to the 'QuizQuestion' interface, where:
+      - Each question contains a string 'question', an array of four 'QuizOption' objects for 'options', and the 'correctOptionId' corresponding to the correct answer.
+      - Each 'QuizOption' object should follow the 'QuizOption' interface, having an 'id' and a 'text' value.`,
+      parameters: [
+        {
+          name: "flashcards",
+          description: "The flashcards for the given topic",
+          type: "object[]", // Use "array" as the type
+        },
+        {
+          name: "quiz",
+          description: "The quiz questions for the given topic, adhering to the QuizQuestion interface",
+          type: "object[]", // Use "array" for QuizQuestion[]
+        },
+        {
+          name:"topic",
+          description: "The title of the topic",
+          type: "string"
+        }
+      ],
+      handler: (args: { flashcards: Flashcard[], quiz: QuizQuestion[], topic: string }) => {
+        addTopics(args);
       },
-      {
-        name: "quiz",
-        description: "The Quiz for the given topic",
-        type: "object[]", // Use "array" for QuizQuestion[]
-      },
-      {
-        name:"topic",
-        description: "The title of the topic",
-        type: "string"
-      }
-    ],
-    handler: (args: { flashcards: Flashcard[], quiz: QuizQuestion[],topic:string }) => {
-      addTopics(args);
-    },
-  });
-
+    });
+    
   return (
     <>
      <RecentFlashCardTopic/>

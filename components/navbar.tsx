@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import Link from 'next/link'
 import FlashCardForm from './FlashCardForm';
+import DarkMode from './DarkMode';
 export default function Navbar(){
     return (
         <nav className="bg-gray-200  p-4 shadow-md">
@@ -18,15 +19,15 @@ export default function Navbar(){
           {/* Logo Section */}
           <div className=" text-lg font-bold">
             <Link href="/">
-            <span>Quiz</span>
-            <span>Flip</span>
+            <span className='text-purple-600 '>Quiz</span>
+            <span className='text-black '>Flip</span>
 
             </Link>
           </div>
-          
+          <DarkMode/>
         
-          
-          {/* Button Section */}
+{/*           
+       
          
           <Dialog>
                     <DialogTrigger className="bg-background px-4 py-1 text-primary rounded-md border">
@@ -44,8 +45,9 @@ export default function Navbar(){
                         <FlashCardForm />
                     </DialogContent>
                     </Dialog>
+                    */}
         </div>
-      </nav>
+      </nav> 
         
     )
 }
