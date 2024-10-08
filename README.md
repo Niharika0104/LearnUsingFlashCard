@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QuizFlip - A app that has generates flashcards on the topic that you ask for
+QuizFlip is an app that generates flashcards on any topic you ask for, helping users learn and review efficiently. It integrates with CopilotKit to generate flashcards and quizzes quickly and accurately.
+
+## Table of Contents
+- [Features](#features)
+- [Demo](#demo)
+- [Getting Started](#getting-started)
+- [Technologies](#technologies)
+- [License](#license)
+- [Contributing](#contributing)
+
+## Features
+- AI-powered text completion
+- FlashCard generation 
+- Quizzes for the generated Flashcards
+- Dark mode
+- Responsive design
+
+## Demo
+
+You can have a live demo of Snippy [here](https://learn-using-flash-cards.vercel.app)
+
+Screenshots:
+- Dashboard
+![image](https://github.com/user-attachments/assets/a57059c2-36f9-490c-b115-7d0994882e1b)
+
+- CopilotChat
+![image](https://github.com/user-attachments/assets/ede5f7ba-9472-4e18-8666-794815b3384b)
+
+- Learn Page
+![image](https://github.com/user-attachments/assets/29cc15c3-5560-4916-94b6-016d3178e5ed)
+
+- Quiz Page
+![image](https://github.com/user-attachments/assets/260e1eeb-b7b3-4cb4-8407-9ae123b9fcae)
+
+- Result Page
+![image](https://github.com/user-attachments/assets/5d234c22-7a46-4773-8952-f4aaf49038f0)
+
+## Technologies
+- [Next.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [CopilotKit](https://copilotkit.ai)
+- [ShadCN](https://ui.shadcn.com)
+- [Zustand](https://zustand.docs.pmnd.rs)
+- [Groq](https://groq.com)
 
 ## Getting Started
+To get started with QuizFlip, run the following commands in your terminal:
 
-First, run the development server:
-
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Niharika0104/learn-using-flash-cards
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create a `.env` file in the root directory and add the following environment variables:
+```bash
+GROQ_API_KEY=your_groq_api_key
+```
+> You can get your GROQ API key by signing up on [groq.dev](https://groq.com)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the development server
+```bash
+npm run dev
+```
 
-## Learn More
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app
 
-To learn more about Next.js, take a look at the following resources:
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
