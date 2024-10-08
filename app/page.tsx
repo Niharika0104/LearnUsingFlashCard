@@ -1,18 +1,15 @@
 "use client";
-import Image from "next/image";
 import { CopilotSidebar } from '@copilotkit/react-ui';
 import "@copilotkit/react-ui/styles.css";
 import { useCopilotAction, useCopilotReadable } from '@copilotkit/react-core';
-import Flashcards from "@/components/FlashCard";
 import useFlashCardStore from '@/lib/store/flashcardstore';
-import { Flashcard, QuizQuestion,TopicContent } from '@/lib/store/flashcardstore';
+import { Flashcard, QuizQuestion } from '@/lib/store/flashcardstore';
 import RecentFlashCardTopic from "@/components/FlashCardTopics";
 
 
 export default function Home() {
   const flashcards = useFlashCardStore((state) => state.flashcards);
   const addFlashCard = useFlashCardStore((state) => state.addTopicContent);
-  const removeFlashCard = useFlashCardStore((state) => state.removeTopicContent);
 
   useCopilotReadable({
     description: 'A code snippet manager',

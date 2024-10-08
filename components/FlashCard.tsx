@@ -1,10 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { Card, CardHeader, CardContent, CardFooter } from './ui/card'; // Assuming Card component exists
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Flashcard, QuizQuestion,TopicContent } from '@/lib/store/flashcardstore';
-import useFlashcardStore from '@/lib/store/flashcardstore';
+import { Card, CardHeader, CardContent } from './ui/card'; // Assuming Card component exists
 import { useTheme } from 'next-themes';
 interface FlashCardData{
     term:string;
@@ -12,19 +8,10 @@ interface FlashCardData{
     onEdit?:(a:string,b:string)=>void;
 }
 const FlashcardComponent = ({ term, description }:FlashCardData) => {
-  const flashcards = useFlashcardStore((state) => state.flashcards)
-  const [searchTerm,setSearchTerm]=useState("");
   const [isFlipped, setIsFlipped] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editTerm, setEditTerm] = useState(term);
-  const [editDescription, setEditDescription] = useState(description);
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const handleFlip = () => setIsFlipped(!isFlipped);
-  const handleEditToggle = () => setIsEditing(!isEditing);
-  const handleSave = () => {
-    //onEdit(editTerm, editDescription);
-    setIsEditing(false);
-  };
+ 
 
   return (
     <>

@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { CopilotKit } from "@copilotkit/react-core";
 import { ThemeProvider } from "@/components/theme-provider"
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 
 
 
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased  `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  dark:bg-gradient-to-r from-slate-200 via-slate-400 to-slate-500 `}
       >
                 <ThemeProvider
             attribute="class"
@@ -40,13 +40,13 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="h-screen w-screen dark:bg-gradient-to-r from-slate-200 via-slate-400 to-slate-500 ">
+           
  <Navbar/>
           <CopilotKit runtimeUrl="/api/copilotkit">
           
             {children}
           </CopilotKit>
-          </div>
+         
           </ThemeProvider>
       </body>
     </html>

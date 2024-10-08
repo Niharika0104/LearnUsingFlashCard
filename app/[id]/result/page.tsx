@@ -1,7 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FaTrophy } from "react-icons/fa"; // Trophy icon using react-icons
 import { useRouter, useParams } from 'next/navigation';
 
 interface QuizResultProps {
@@ -12,8 +11,8 @@ interface QuizResultProps {
   unAnsweredQuestions: number;
 }
 
-export default function QuizResult({ correctAnswers, wrongAnswers, totalQuestions }: QuizResultProps) {
-  const [showTrophy, setShowTrophy] = useState(correctAnswers > wrongAnswers); // Show trophy based on score
+export default function QuizResult() {
+  
   const router = useRouter();
   const { id } = useParams();
   const [data, setData] = useState<QuizResultProps | null>(null); // Default to null until data is loaded
@@ -30,12 +29,7 @@ export default function QuizResult({ correctAnswers, wrongAnswers, totalQuestion
 
   return (
     <div className="flex flex-col items-center justify-center h-full text-white">
-      {showTrophy && (
-        <div className="flex items-center justify-center mb-8">
-          <FaTrophy className="text-yellow-400 text-6xl" />
-          <h2 className="text-4xl font-bold ml-4">Congratulations!</h2>
-        </div>
-      )}
+     
       <div className={`text-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md text-center bg-white`}>
         <h3 className="text-2xl font-bold mb-4">Quiz Results</h3>
         <p className="text-lg mb-2">Correct Answers: <span className="text-green-500 font-bold">{data?.correctAnswers}</span></p>

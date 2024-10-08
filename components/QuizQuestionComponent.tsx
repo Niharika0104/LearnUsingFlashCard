@@ -1,5 +1,3 @@
-import { QuizOption } from "@/lib/store/flashcardstore";
-import { useTheme } from "next-themes";
 import { useEffect } from "react";
 
 interface Quiz {
@@ -21,7 +19,6 @@ export default function QuizQuestionComponent({
   // Debugging instead of alert
   console.log("Marked as Review: ", markedAsReview);
 
-  const { theme, setTheme } = useTheme();
 
   // Empty useEffect placeholder removed since it does nothing currently.
   useEffect(() => {}, [markedAsReview]);

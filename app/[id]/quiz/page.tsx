@@ -1,5 +1,5 @@
 "use client";
-import useFlashCardStore, { TopicContent, QuizQuestion } from '@/lib/store/flashcardstore';
+import useFlashCardStore, {  QuizQuestion } from '@/lib/store/flashcardstore';
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import QuizQuestionComponent from '@/components/QuizQuestionComponent';
@@ -12,14 +12,14 @@ interface Quiz extends QuizQuestion{
   isMarkedForReview: boolean;
 }
 const QuizPage = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const { id } = useParams();
   const [marked,setmaked]=useState(false);
   const router=useRouter();
   const flashcards = useFlashCardStore((state) => state.flashcards);
   const [data, setData] = useState<Quiz[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [rev,setRev]=useState(0);
+
   const handleOptionSelect = (optionId: number) => {
     setData((prevData) =>
       prevData.map((q, index) =>
@@ -61,7 +61,7 @@ const QuizPage = () => {
     const total = data.length; // Total questions
     const review=data.filter((ques) => ques.isMarkedForReview === true).length;
     
-    setRev(review) 
+ 
     const res: QuizResultProps = {
       correctAnswers: correct,
       wrongAnswers: wrong,
@@ -74,7 +74,7 @@ const QuizPage = () => {
     return res;
   };
   const markReview=()=>{
-    const val=currentQuestionIndex;
+   
     currentQuestion.isMarkedForReview= !currentQuestion.isMarkedForReview;
     setmaked(!marked);
   }

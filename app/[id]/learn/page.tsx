@@ -1,5 +1,5 @@
 "use client";
-import useFlashCardStore, { TopicContent } from '@/lib/store/flashcardstore';
+import useFlashCardStore from '@/lib/store/flashcardstore';
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { Flashcard } from '@/lib/store/flashcardstore';

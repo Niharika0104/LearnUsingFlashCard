@@ -6,7 +6,7 @@ import {
 import { NextRequest } from "next/server";
 import Groq from "groq-sdk";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY }) as any;
+const groq:Groq = new Groq({ apiKey: process.env.GROQ_API_KEY }) ;
 
 const copilotKit = new CopilotRuntime();
 

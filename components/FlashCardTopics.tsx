@@ -1,16 +1,12 @@
-import { useEffect } from "react";
 import useFlashcardStore from "@/lib/store/flashcardstore";
-import { Card, CardHeader, CardContent, CardFooter } from './ui/card'; 
+import { Card, CardContent } from './ui/card'; 
 import { useRouter } from 'next/navigation';
 import { useTheme } from "next-themes";
-interface Data{
-    topic:string;
-    FlashCards:[]
-}
+
 export default function RecentFlashCardTopic(){
     const flashcards = useFlashcardStore((state) => state.flashcards);
     const router=useRouter();
-    const {theme,setTheme}=useTheme();
+    const {theme}=useTheme();
     return(
         <>
       { <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl: gap-4 m-4 ">

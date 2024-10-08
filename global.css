@@ -1,6 +1,0 @@
-@layer base {
-    body {
-        @apply bg-white dark:bg-red-100;
-    }
-}
-
